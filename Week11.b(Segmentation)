@@ -1,0 +1,25 @@
+#include <stdio.h>
+int main() {
+    int base, limit, offset;
+    printf("Enter base address: ");
+    scanf("%d", &base);
+    printf("Enter limit: ");
+    scanf("%d", &limit);
+    printf("Enter logical address (offset): ");
+    scanf("%d", &offset);
+    if(offset < limit) {
+        int physical = base + offset;
+        printf("Mapped physical address is = %d\n", physical);
+    } else {
+        printf("Error: Address exceeds limit\n");
+    }
+    return 0;
+}
+
+____________________________________________
+output
+
+Enter base address: 500
+Enter limit: 2
+Enter logical address: 1
+Mapped physical address is = 501
