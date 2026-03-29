@@ -1,0 +1,46 @@
+#include<stdio.h>
+struct file{
+    char name[10];
+    int start,size,block[10];
+}f[10];
+int main(){
+    int n,i,j;
+    printf("Enter no of files: ");
+    scanf("%d",&n);
+    for(i=0;i<n;i++){
+        printf("File name: ");
+        scanf("%s",f[i].name);
+        printf("Start block: ");
+        scanf("%d",&f[i].start);
+        printf("No of blocks: ");
+        scanf("%d",&f[i].size);
+        printf("Enter blocks: ");
+        for(j=0;j<f[i].size;j++)
+            scanf("%d",&f[i].block[j]);
+    }
+    printf("\nFile\tStart\tSize\tBlocks\n");
+    for(i=0;i<n;i++){
+        printf("%s\t%d\t%d\t",f[i].name,f[i].start,f[i].size);
+        for(j=0;j<f[i].size;j++){
+            printf("%d",f[i].block[j]);
+            if(j!=f[i].size-1) printf("->");
+        }
+        printf("\n");
+    }
+}
+
+__________________________________________________
+output
+
+Enter no of files: 2
+File name: 1
+Start block: 12
+No of blocks: 5
+Enter blocks: 2 4 6 8 9
+File name: 3
+Start block: 1
+No of blocks: 4
+Enter blocks: 3 5 7 9
+File   Start   Size   Blocks
+1      12      5      2->4->6->8->9
+3      1       4      3->5->7->9
