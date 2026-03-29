@@ -1,0 +1,21 @@
+#include <stdio.h>
+int main() {
+    int psize, fsize, page, offset, frame;
+    printf("Enter page size: ");
+    scanf("%d", &psize);
+    printf("Enter frame number for page: ");
+    scanf("%d", &frame);
+    printf("Enter logical address (page no and offset): ");
+    scanf("%d %d", &page, &offset);
+    int physical = frame * psize + offset;
+    printf("Physical address = %d\n", physical);
+    return 0;
+}
+
+_________________________________________
+output
+
+Enter page size: 2
+Enter frame number for page: 1
+Enter logical address (page no and offset): 2 0
+Physical address = 2
