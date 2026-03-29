@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+int main() {
+    int frames[10], pages[20], time[10];
+    int n,f,i,j,k=0,fault=0,min,found;
+    printf("Enter no of frames: ");
+    scanf("%d",&f);
+    printf("Enter no of reference string: ");
+    scanf("%d",&n);
+    printf("Enter reference string: ");
+    for(i=0;i<n;i++) scanf("%d",&pages[i]);
+    for(i=0;i<f;i++) frames[i]=-1;
+    for(i=0;i<n;i++) {
+        found=0;
+        for(j=0;j<f;j++) {
+            if(frames[j]==pages[i]) {
+                found=1;
+                time[j]=i;
+            }
+        }
+        if(!found) {
+            if(i<f) frames[i]=pages[i];
+            else {
+                min=0;
+                for(j=1;j<f;j++)
+                    if(time[j]<time[min]) min=j;
+                frames[min]=pages[i];
+            }
+            fault++;
+        }
+    }
+    printf("Page fault is %d", fault);
+}
+
+__________________________________________
+output
+
+Enter no of frames: 3
+Enter no of reference string: 8
+Enter reference string:
+7 1 2 3 4 3 2 1
+Page fault is 6
