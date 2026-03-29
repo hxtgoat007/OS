@@ -1,0 +1,47 @@
+#include<stdio.h>
+int main(){
+    int n,i,j,m[10],index[10],b[10][10],x;
+    printf("Enter no of files: ");
+    scanf("%d",&n);
+    for(i=0;i<n;i++){
+        printf("Index of file %d: ",i+1);
+        scanf("%d",&index[i]);
+        printf("Length of file %d: ",i+1);
+        scanf("%d",&m[i]);
+        printf("Blocks: ");
+        for(j=0;j<m[i];j++)
+            scanf("%d",&b[i][j]);
+    }
+    printf("\nFile\tIndex\tLength\n");
+    for(i=0;i<n;i++)
+        printf("%d\t%d\t%d\n",i+1,index[i],m[i]);
+    printf("Enter file name: ");
+    scanf("%d",&x);
+    printf("File name is: %d",x);
+    printf("\nIndex is: %d",index[x-1]);
+    printf("\nBlocks: ");
+    for(j=0;j<m[x-1];j++)
+        printf("%d ",b[x-1][j]);
+}
+
+_________________________________________________
+output
+
+Enter no of files: 3
+Index of file 1: 5
+Length of file 1: 3
+Blocks: 2 6 7
+Index of file 2: 3
+Length of file 2: 4
+Blocks: 2 3 4 5
+Index of file 3: 6
+Length of file 3: 3
+Blocks: 5 6 7
+File   Index   Length
+1      5       3
+2      3       4
+3      6       3
+Enter file name: 1
+File name is: 1
+Index is: 5
+Blocks: 2 6 7
