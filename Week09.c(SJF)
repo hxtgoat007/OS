@@ -2,6 +2,7 @@
 int main() {
     int n,i,j;
     int bt[10],wt[10],tat[10],pid[10];
+    float awt, atat;
     printf("Enter no of processes: ");
     scanf("%d",&n);
     for(i=0;i<n;i++){
@@ -26,6 +27,10 @@ int main() {
     printf("\nPID\tBT\tWT\tTAT\n");
     for(i=0;i<n;i++)
         printf("%d\t%d\t%d\t%d\n",pid[i],bt[i],wt[i],tat[i]);
+    awt = wt / n;
+    atat = tat / n;
+    printf("\nAvg WT: %f\nAvg TAT: %f", awt, atat);
+    return 0;
     return 0;
 }
 
