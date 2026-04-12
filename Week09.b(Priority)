@@ -32,7 +32,6 @@ int main() {
     atat = tat / n;
     printf("\nAvg WT: %f\nAvg TAT: %f", awt, atat);
     return 0;
-    return 0;
 }
 
 __________________________________________
