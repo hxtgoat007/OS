@@ -5,7 +5,7 @@ int main() {
     int fd[2];
     char msg[] = "Hello from parent";
     char buffer[50];
-    pipe(fd);   // create pipe
+    pipe(fd);
     if(fork() == 0) {
         read(fd[0], buffer, sizeof(buffer));
         printf("Child received message: %s\n", buffer);
