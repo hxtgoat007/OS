@@ -1,20 +1,18 @@
 #include <stdio.h>
 #include <unistd.h>
-int global = 10;   // global variable
+int global = 10;   
 int main() {
-    int local = 20;   // local variable
+    int local = 20;  
     pid_t pid;
     printf("Before fork\n");
     printf("pid = %d, global = %d, local = %d\n", getpid(), global, local);
-    pid = fork();   // create child process
+    pid = fork();  
     if(pid == 0) {
-        // Child process
         global++;
         local++;
         printf("After fork (Child)\n");
         printf("pid = %d, global = %d, local = %d\n", getpid(), global, local);
     } else {
-        // Parent process
         global++;
         printf("After fork (Parent)\n");
         printf("pid = %d, global = %d, local = %d\n", getpid(), global, local);
